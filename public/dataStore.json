@@ -1,0 +1,137 @@
+{
+    "categories": [],
+    "habits": [
+        {
+            "id": 1,
+            "title": "زبان بخونم",
+            "icon": "book-open",
+            "color": "bg-c5",
+            "interval": [
+                "SATURDAY",
+                "MONDAY",
+                "WEDNESDAY"
+            ],
+            "description": "۲ ساعت"
+        },
+        {
+            "id": 2,
+            "title": "ورزش کنم",
+            "icon": "dribbble",
+            "color": "bg-c1",
+            "interval": [
+                "SUNDAY",
+                "TUESDAY"
+            ],
+            "description": "یوگا ۸-۹.۱۵"
+        },
+        {
+            "id": 3,
+            "title": "قرص ویتامینه بخورم",
+            "icon": "check",
+            "color": "bg-c6",
+            "interval": [
+                "SUNDAY",
+                "TUESDAY",
+                "THURSDAY"
+            ],
+            "description": "ویتامین دی، ای، مولتی ویتامین"
+        },
+        {
+            "id": 4,
+            "title": " به گیاه ها آب بدم",
+            "icon": "droplet",
+            "color": "bg-c9",
+            "interval": [
+                "SATURDAY",
+                "WEDNESDAY"
+            ],
+            "description": null
+        },
+        {
+            "id": 5,
+            "title": "مطالعه کنم",
+            "icon": "book",
+            "color": "bg-c2",
+            "interval": [
+                "SATURDAY",
+                "SUNDAY",
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+            ],
+            "description": "۳۰ دقیقه"
+        },
+        {
+            "id": 6,
+            "title": "کار کنم",
+            "icon": "monitor",
+            "color": "bg-c3",
+            "interval": [
+                "SATURDAY",
+                "SUNDAY",
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+            ],
+            "description": "۶ ساعت"
+        },
+        {
+            "id": 7,
+            "title": "مقاله بخونم",
+            "icon": "book",
+            "color": "bg-c4",
+            "interval": [
+                "SATURDAY",
+                "SUNDAY",
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+            ],
+            "description": "۳۰ دقیقه"
+        },
+        {
+            "id": 8,
+            "title": "رانندگی",
+            "icon": "check",
+            "color": "bg-c7",
+            "interval": [
+                "SATURDAY"
+            ],
+            "description": "۱ ساعت"
+        },
+        {
+            "id": 9,
+            "title": "تنبک بزنم",
+            "icon": "music",
+            "color": "bg-orange",
+            "interval": [
+                "SATURDAY"
+            ],
+            "description": "۳۰ دقیقه"
+        },
+        {
+            "id": 10,
+            "title": "سریال ببینم",
+            "icon": "film",
+            "color": "bg-c8",
+            "interval": [
+                "SUNDAY",
+                "TUESDAY",
+                "THURSDAY"
+            ],
+            "description": "۱ ساعت"
+        }
+    ],
+    "profile": {
+        "name": "رزیتا",
+        "email": "rozita.hasani74@gmail.com"
+    },
+    "tracker": {
+    }
+}
