@@ -8,3 +8,13 @@ const app = createApp(App)
 app.use(router)
 app.component(VueFeather.name, VueFeather)
 app.mount('#app')
+
+
+import { en2fa } from './Persian.js'
+
+var myMixIn = {
+    methods: {
+        en2fa: en2fa
+    }
+}
+app.mixin(myMixIn);

@@ -1,37 +1,37 @@
 import { LowSync, LocalStorage } from 'lowdb'
 class DataStore {
-    constructor(){
-        this.db =  new LowSync(new LocalStorage("DATA_STORE"));
+    constructor() {
+        this.db = new LowSync(new LocalStorage("DATA_STORE"));
         this.db.read();
-        this.db.data ||= {habits : [], profile:{}, tracker:{}};
+        this.db.data ||= { habits: [], profile: {}, tracker: {} };
         this.db.write();
     }
 
-    createHabit(habit){
+    createHabit(habit) {
         habit.id = crypto.randomUUID();
         this.db.data.habits.push(habit);
         this.db.write();
     }
 
-    saveHabits(habitList){
+    saveHabits(habitList) {
         this.db.data.habits = habitList;
         this.db.write();
     }
 
-    getHabits(){
+    getHabits() {
         return this.db.data.habits
     }
 
-    saveProfile(detail){
+    saveProfile(detail) {
         this.db.data.profile = detail;
         this.db.write();
     }
 
-    getProfile(){
+    getProfile() {
         return this.db.data.profile
     }
 
-    saveTracker(date, doneHabits){
+    saveTracker(date, doneHabits) {
         if (this.db.data.tracker == null) {
             this.db.data.tracker = {}
         }
@@ -39,7 +39,7 @@ class DataStore {
         this.db.write();
     }
 
-    getTracker(date){
+    getTracker(date) {
         if (this.db.data.tracker[date] == null) {
             this.db.data.tracker[date] = []
         }

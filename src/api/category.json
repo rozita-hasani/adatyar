@@ -1,10 +1,10 @@
 [
-    {"id" : 1 , "src": "../src/assets/health.png", "name" : "سلامت"},
-    {"id" : 2 , "src": "../src/assets/social.png", "name" : "روابط"},
-    {"id" : 3 , "src": "../src/assets/education.png" , "name" : "تحصیل"},
-    {"id" : 4 , "src": "../src/assets/work.png", "name" : "کار"},
-    {"id" : 5 , "src": "../src/assets/pleasure.png", "name" : "تفریح"},
-    {"id" : 6 , "src": "../src/assets/skill.png", "name" : "مهارت"},
-    {"id" : 7 , "src": "../src/assets/homework.png", "name" : "امورخانه"},
-    {"id" : 8 , "src": "../src/assets/financial.png", "name" : "مالی"}
+    {"id" : 1 , "type": "activity", "name" : "سلامت"},
+    {"id" : 2 , "type": "users", "name" : "روابط"},
+    {"id" : 3 , "type": "book-open" , "name" : "تحصیل"},
+    {"id" : 4 , "type": "monitor", "name" : "کار"},
+    {"id" : 5 , "type": "dribbble", "name" : "تفریح"},
+    {"id" : 6 , "type": "award", "name" : "مهارت"},
+    {"id" : 7 , "type": "home", "name" : "امورخانه"},
+    {"id" : 8 , "type": "dollar-sign", "name" : "مالی"}
 ]

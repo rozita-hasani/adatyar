@@ -1,122 +1,125 @@
 <template>
-    <div class="bg-latte flex flex-col text-center h-vh text-silver dark:bg-gunmetal">
-        <section class="mx-6 mt-5 flex flex-wrap justify-between dark:text-white">
-            <PencilSquareIcon class="h-10 w-10" @click="setCategory()" />
-            <div v-if="isDarkmode">
-                <SunIcon class="h-10 w-10" @click="setLightMode()" />
+    <div class="flex flex-col text-center h-vh bg-latte text-silver dark:bg-gunmetal">
+        <TopNavbar/>
+        <p class="title bg-white text-silver font-bold tracking-wide shadow-md py-2 mx-16 rounded-3xl z-10 relative top-5 dark:bg-silver dark:text-white">لیست کل عادت ها</p>
+        <section class="flex flex-col items-center h-full rounded-3xl shadow-md mx-6 mb-5 pt-10 pb-5 overflow-y-auto overflow-x-hidden bg-macaroni text-silver dark:bg-charcoal dark:text-white">
+            <div class="month flex items-center mt-2 mb-5">
+                <ChevronLeftIcon class="h-5 w-5" @click="showNextWeek()"/>
+                <span class="text-xl font-bold mx-24">{{ monthCalendar.join(' - ') }}</span>
+                <ChevronRightIcon class="h-5 w-5" @click="showLastWeek()"/>
             </div>
-            <div v-if="!isDarkmode">
-                <MoonIcon class="h-10 w-10" @click="setDarkMode()" />
+            <div class="days flex flex-row-reverse mb-5 items-center">
+                <section class="flex flex-col text-center items-center" v-for="(day, name) in weekDays" :key="name"
+                :class="{ 'bg-blush rounded-t-full': day.weekDayEnName == this.selectedDay }">
+                    <span @click="changeCurrentHabits(day.weekDayEnName, day.date)"
+                        :class="{ 'bg-latte dark:bg-gunmetal': day.weekDayEnName == this.selectedDay, 'bg-buff dark:bg-gray': day.weekDayEnName != this.selectedDay }"
+                        class="flex items-center justify-center font-bold text-lg rounded-full w-9 h-9 m-1 pt-1">{{ en2fa(day.monthDay) }}</span>
+                    <div dir="rtl" :class="{ 'text-white': day.weekDayEnName == this.selectedDay }" class="text-ss mx-1 mb-1"> {{ day.weekDayName }}</div>
+                </section>
+            </div>
+            <div class="habit-day flex flex-wrap flex-row-reverse justify-center items-center dark: text-silver">
+                <section dir="rtl" v-for="habit in todayHabits" :key="habit.id" :class="habit.color"
+                    class="flex flex-col items-center text-center w-32 min-h-48 rounded-2xl m-2 p-4 shadow-md font-semibold tracking-wide">
+                    <span class="w-14 h-14 border-4 border-silver bg-latte rounded-full pt-2 mb-2">
+                        <vue-feather :type="habit.icon" class="w-8"></vue-feather>
+                    </span>
+                    <div class="mb-4">
+                        <p class="text-sm mb-2">{{ habit.title }}</p>
+                        <p class="font-normal text-xs">{{ habit.description }}</p>
+                    </div>
+                    <div class="flex flex-col mx-2 font-semibold text-xs shadow-md">
+                        <span v-if="doneHabit[habit.id]" class="bg-blush text-white p-2 w-24 rounded-lg">انجام شده</span>
+                        <span v-if="!doneHabit[habit.id]" class="bg-latte p-2 w-24 rounded-lg">انجام نشده</span>
+                    </div>
+                </section>
             </div>
         </section>
-        <p class="text-silver font-bold tracking-wide shadow-md py-2 bg-white mx-16 rounded-3xl z-10 relative top-5 dark:bg-silver dark:text-white">جدول عادت های هفته</p>
-        <section class="bg-macaroni text-silver mx-6 mb-5 rounded-3xl h-full flex flex-col items-center shadow-md dark:bg-charcoal dark:text-white px-2 pt-10 pb-5">
-            <table class="text-xs mt-2">
-                <!-- Sample -->
-                <thead class="">
-                    <tr dir="rtl" class="border-b text-gray dark:text-buff">
-                        <th class="pl-2 pb-1">جمعه</th>
-                        <th class="pl-2">5شنبه</th>
-                        <th class="pl-2">4شنبه</th>
-                        <th class="pl-2">3شنبه</th>
-                        <th class="pl-2">2شنبه</th>
-                        <th class="pl-2">1شنبه</th>
-                        <th class="pl-2">شنبه</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody class=" tracking-tighter">
-                    <tr class="border-b">
-                        <th>✓</th>
-                        <th></th>
-                        <th>×</th>
-                        <th></th>
-                        <th>✓</th>
-                        <th></th>
-                        <th></th>
-                        <th class="text-right py-2 text-gunmetal dark:text-latte">ورزش کنم</th>
-                    </tr>
-                    <tr class="border-b">
-                        <th></th>
-                        <th></th>
-                        <th>✓</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th>✓</th>
-                        <th class="text-right py-2 text-gunmetal dark:text-latte">به گیاه ها آب بدم</th>
-                    </tr>
-                    <tr class="border-b">
-                        <th></th>
-                        <th>✓</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th>×</th>
-                        <th></th>
-                        <th class="text-right py-2 text-gunmetal dark:text-latte">زبان بخونم</th>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section class="mx-6 mb-5 flex flex-wrap justify-between flex-row-reverse dark:text-white">
-            <UserCircleIcon class="h-10 w-10" @click="goProfile()" />
-            <ClipboardDocumentCheckIcon class="h-10 w-10" @click="goHabitList()"/>
-            <CalendarDaysIcon class="h-10 w-10"/>
-            <ClockIcon class="h-10 w-10" @click="goHistory()"/>
-        </section>
+        <Navbar />
     </div>
 </template>
 
 <script>
-import { PencilSquareIcon, MoonIcon, SunIcon, ClockIcon, ClipboardDocumentCheckIcon, CameraIcon, UserIcon, EnvelopeIcon, UserCircleIcon } from '@heroicons/vue/24/outline'
-import { CalendarDaysIcon } from '@heroicons/vue/24/solid'
+import { CameraIcon, UserIcon, EnvelopeIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
+
+import DataStore from '../DataStore.js'
+import TopNavbar from '../components/Top-Navbar.vue'
+import Navbar from '../components/Navbar.vue'
+import { WeekDays } from '../Enums.js'
 
 export default {
     name: 'Habit-List',
     data() {
         return {
-            isDarkmode: false,
-            NameIsEditable: false,
-            EmailIsEditable: false,
+            todayHabits: null,
+            weekDays: WeekDays,
+            doneHabit: [],
+            monthCalendar: [],
+            currentWeekDay: new persianDate(),
+            selectedDay: null,
+            selectedDate: null
         }
     },
     components: {
-        UserCircleIcon, PencilSquareIcon, MoonIcon, SunIcon, ClockIcon, CalendarDaysIcon, ClipboardDocumentCheckIcon, CameraIcon, UserIcon, EnvelopeIcon
+        CameraIcon, UserIcon, EnvelopeIcon, ChevronLeftIcon, ChevronRightIcon, Navbar, TopNavbar
     },
     methods: {
-        setCategory() {
-            this.$router.push(`/Category`);
+        showCurrentHabits() {
+            this.todayHabits = DataStore.getHabits().filter(a => a.interval.indexOf(this.selectedDay) >= 0);
         },
-        setDarkMode() {
-            this.isDarkmode = true;
-            document.body.classList.toggle('dark')
+        showWeekDays() {
+            var todayNumber = this.currentWeekDay.days();
+            var firstWeekDay = this.currentWeekDay.subtract('days', todayNumber - 1);
+
+            var currentWeek = [];
+            var monthNames = [];
+            for (var i = 0; i <= 6; i++) {
+                var firstDay = firstWeekDay.add('days', i);
+                var currentDate = {
+                    weekDay: firstDay.days(), //which day of week
+                    monthDay: firstDay.date(), //which day of month
+                    monthName: firstDay.toLocale('fa').format('MMMM'), // آیان
+                    weekDayName: firstDay.toLocale('fa').format('dddd'), //  شنبه
+                    weekDayEnName: firstDay.toLocale('en').format('dddd').toUpperCase(), // SATURDAY
+                    date: firstDay.toCalendar('gregorian').format('YYYY-MM-DD') // 2022-11-12
+                }
+                currentWeek.push(currentDate)
+                if (monthNames.indexOf(currentDate.monthName) == -1) {
+                    monthNames.push(currentDate.monthName);
+                }
+            }
+            this.monthCalendar = monthNames;
+            this.weekDays = currentWeek;
         },
-        setLightMode() {
-            this.isDarkmode = false;
-            document.body.classList.remove('dark')
+        showLastWeek() {
+            this.currentWeekDay = this.currentWeekDay.subtract("days", 7);
+            this.showWeekDays();
         },
-        openNameModal() {
-            this.NameIsEditable = true
+        showNextWeek() {
+            this.currentWeekDay = this.currentWeekDay.add("days", 7);
+            this.showWeekDays();
         },
-        closeNameModal(){
-            this.NameIsEditable = false
+        showDayTracker() {
+            this.doneHabit = [];
+            var todayTracker = DataStore.getTracker(this.selectedDate);
+            for (var item of todayTracker) {
+                this.doneHabit[item] = true;
+            }
         },
-        openEmailModal() {
-            this.EmailIsEditable = true
+        changeCurrentHabits(selectedDayName, date) {
+            this.selectedDay = selectedDayName;
+            this.showCurrentHabits();
+            this.selectedDate = date;
+            this.showDayTracker();
         },
-        closeEmailModal(){
-            this.EmailIsEditable = false
-        },
-        goProfile() {
-            this.$router.push(`/Profile`);
-        },
-        goHabitList() {
-            this.$router.push(`/Habit-List`);
-        },
-        goHistory() {
-            this.$router.push(`/History`);
-        }
+    },
+    mounted() {
+        this.selectedDay = new Date().toLocaleDateString("en-US", { weekday: 'long' }).toUpperCase();
+        this.showCurrentHabits();
+
+        this.showWeekDays();
+
+        this.selectedDate = new Date().toISOString().split("T")[0];
+        this.showDayTracker();
     }
 }
 </script>

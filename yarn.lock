@@ -525,6 +525,11 @@
   "resolved" "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz"
   "version" "1.0.7"
 
+"persian-date@^1.1.0":
+  "integrity" "sha512-YwV3703jLTTJFFQfP3RvMfvKZc5Z1yE++Deywox+hkVLuVN81VsTaZFma9k5P9SgfSUvXjiylbQVuf4YYLGOow=="
+  "resolved" "https://registry.npmjs.org/persian-date/-/persian-date-1.1.0.tgz"
+  "version" "1.1.0"
+
 "picocolors@^1.0.0":
   "integrity" "sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ=="
   "resolved" "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
