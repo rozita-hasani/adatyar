@@ -57,13 +57,14 @@
 import DataStore from '../DataStore.js'
 import { WeekDays } from '../Enums.js'
 import { Colors } from '../Enums.js'
+import {icons} from '../data.js';
 
 export default {
     name: 'Creation',
     data() {
         return {
             icons: null,
-            colors: null,
+            colors: Colors,
             days: null,
             habitTitle: this.$route.query.title,
             habitIcon: this.$route.query.iconType,
@@ -72,7 +73,6 @@ export default {
             habitDescription: null,
             weekDays: WeekDays,
             isVisible: false,
-            colors: Colors
         }
     },
     methods: {
@@ -88,9 +88,7 @@ export default {
             this.$router.go(-1)
         },
         async loadIcons() {
-            const res = await fetch("../src/api/feather.json");
-            const data = await res.json();
-            this.icons = data;
+            this.icons = icons;
         },
         chooseIcon(selectedIcon) {
             this.habitIcon = selectedIcon;

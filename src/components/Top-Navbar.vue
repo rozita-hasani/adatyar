@@ -1,11 +1,16 @@
 <template>
-    <section class="flex flex-wrap justify-between mx-6 mt-5 dark:text-white">
-        <PencilSquareIcon class="h-10 w-10" @click="setCategory()" />
+    <section class="flex flex-wrap drop-shadow justify-between px-6 py-5 dark:text-white bg-indigo-100 dark:bg-gunmetal ">
+        <PencilSquareIcon class="h-7 w-7" @click="setCategory()" />
         <div v-if="isDarkmode">
-            <SunIcon class="h-10 w-10" @click="setLightMode()" />
+            <SunIcon class="h-7 w-7" @click="setLightMode()" />
         </div>
+	    <div>
+		    <h1 class="text-xl font-bold">
+			    {{ title }}
+		    </h1>
+	    </div>
         <div v-if="!isDarkmode">
-            <MoonIcon class="h-10 w-10" @click="setDarkMode()" />
+            <MoonIcon class="h-7 w-7" @click="setDarkMode()" />
         </div>
     </section>
 </template>
@@ -15,6 +20,7 @@ import { PencilSquareIcon, MoonIcon, SunIcon } from '@heroicons/vue/24/outline'
 
 export default {
     name: 'TopNavigationBar',
+	props : ['title'],
     data() {
         return {
             isDarkmode: false,

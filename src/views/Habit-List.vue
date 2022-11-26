@@ -1,8 +1,7 @@
 <template>
     <div class="flex flex-col text-center h-vh bg-latte text-silver dark:bg-gunmetal">
-        <TopNavbar/>
-        <p class="title font-bold tracking-wide shadow-md py-2 mx-16 rounded-3xl z-10 relative top-5 bg-white text-silver dark:bg-silver dark:text-white">لیست عادت های امروز</p>
-        <div class="habit-list flex flex-col items-center bg-macaroni text-silver mx-6 mb-5 px-7 pt-10 pb-5 rounded-3xl shadow-md font-bold h-full overflow-y-auto overflow-x-hidden dark:bg-charcoal">
+        <TopNavbar :title="'عادات های امروز'"/>
+        <div class="habit-list flex flex-col  items-center bg-white text-silver   p-5  shadow-md font-bold h-full overflow-y-auto overflow-x-hidden dark:bg-charcoal">
             <section dir="rtl" v-for="habit in todayHabits" :key="habit.id" :class="habit.color"
                 class="flex justify-between items-center text-center w-full mx-6 mt-3 p-2 rounded-2xl shadow-md font-semibold tracking-wide">
                 <div class="flex items-center">
@@ -25,6 +24,8 @@ import { CameraIcon, UserIcon, EnvelopeIcon } from '@heroicons/vue/24/outline'
 import TopNavbar from '../components/Top-Navbar.vue'
 import Navbar from '../components/Navbar.vue'
 import DataStore from '../DataStore.js'
+import persianDate from 'persian-date'
+
 
 export default {
     name: 'Habit-List',

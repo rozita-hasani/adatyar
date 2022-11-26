@@ -1,8 +1,7 @@
 <template>
     <div class="flex flex-col text-center h-vh bg-latte text-silver dark:bg-gunmetal">
-        <TopNavbar/>
-        <p class="title bg-white text-silver font-bold tracking-wide shadow-md py-2 mx-16 rounded-3xl z-10 relative top-5 dark:bg-silver dark:text-white">لیست کل عادت ها</p>
-        <section class="flex flex-col items-center h-full rounded-3xl shadow-md mx-6 mb-5 pt-10 pb-5 overflow-y-auto overflow-x-hidden bg-macaroni text-silver dark:bg-charcoal dark:text-white">
+        <TopNavbar :title='"لیست عادت ها"' />
+        <section class="flex flex-col items-center h-full  mx-0  pt-5 pb-5 overflow-y-auto overflow-x-hidden bg-white text-silver dark:bg-charcoal dark:text-white">
             <div class="month flex items-center mt-2 mb-5">
                 <ChevronLeftIcon class="h-5 w-5" @click="showNextWeek()"/>
                 <span class="text-xl font-bold mx-24">{{ monthCalendar.join(' - ') }}</span>
@@ -10,14 +9,14 @@
             </div>
             <div class="days flex flex-row-reverse mb-5 items-center">
                 <section class="flex flex-col text-center items-center" v-for="(day, name) in weekDays" :key="name"
-                :class="{ 'bg-blush rounded-t-full': day.weekDayEnName == this.selectedDay }">
+                :class="{ 'bg-blush rounded': day.weekDayEnName == this.selectedDay }">
                     <span @click="changeCurrentHabits(day.weekDayEnName, day.date)"
                         :class="{ 'bg-latte dark:bg-gunmetal': day.weekDayEnName == this.selectedDay, 'bg-buff dark:bg-gray': day.weekDayEnName != this.selectedDay }"
-                        class="flex items-center justify-center font-bold text-lg rounded-full w-9 h-9 m-1 pt-1">{{ en2fa(day.monthDay) }}</span>
-                    <div dir="rtl" :class="{ 'text-white': day.weekDayEnName == this.selectedDay }" class="text-ss mx-1 mb-1"> {{ day.weekDayName }}</div>
+                        class="flex items-center justify-center font-bold text-lg rounded w-9 h-9 m-1 pt-1 ">{{ en2fa(day.monthDay) }}</span>
+                    <div dir="rtl" :class="{ 'text-white': day.weekDayEnName == this.selectedDay }" class="text-ss mx-1 mb-1 "> {{ day.weekDayName }}</div>
                 </section>
             </div>
-            <div class="habit-day flex flex-wrap flex-row-reverse justify-center items-center dark: text-silver">
+            <div class="habit-day flex flex-wrap flex-row-reverse justify-center items-center dark: text-silver ">
                 <section dir="rtl" v-for="habit in todayHabits" :key="habit.id" :class="habit.color"
                     class="flex flex-col items-center text-center w-32 min-h-48 rounded-2xl m-2 p-4 shadow-md font-semibold tracking-wide">
                     <span class="w-14 h-14 border-4 border-silver bg-latte rounded-full pt-2 mb-2">
@@ -40,7 +39,7 @@
 
 <script>
 import { CameraIcon, UserIcon, EnvelopeIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
-
+import persianDate from 'persian-date'
 import DataStore from '../DataStore.js'
 import TopNavbar from '../components/Top-Navbar.vue'
 import Navbar from '../components/Navbar.vue'

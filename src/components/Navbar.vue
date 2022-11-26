@@ -1,16 +1,16 @@
 <template>
-    <section class="flex flex-wrap justify-between flex-row-reverse mx-6 mb-5 dark:text-white">
-        <UserCircleIconSolid v-if="route == 'profile'" class="h-10 w-10" @click="showProfile()" />
-        <UserCircleIcon v-else class="h-10 w-10" @click="showProfile()" />
+    <section class="flex flex-wrap justify-between drop-shadow flex-row-reverse px-6 py-5 dark:text-white ">
+<!--        <UserCircleIconSolid v-if="route == 'profile'" :class=iconClassSize @click="showProfile()" />-->
+<!--        <UserCircleIcon v-else :class=iconClassSize @click="showProfile()" />-->
 
-        <ClipboardDocumentCheckIconSolid v-if="route == 'habit-list'" class="h-10 w-10" @click="showHabitList()" />
-        <ClipboardDocumentCheckIcon v-else class="h-10 w-10" @click="showHabitList()" />
+        <ClipboardDocumentCheckIconSolid v-if="route == 'habit-list'" :class=iconClassSize @click="showHabitList()" />
+        <ClipboardDocumentCheckIcon v-else :class=iconClassSize @click="showHabitList()" />
 
-        <CalendarDaysIconSolid v-if="route == 'weekly-habit'" class="h-10 w-10" @click="showWeeklyHabit()" />
-        <CalendarDaysIcon v-else class="h-10 w-10" @click="showWeeklyHabit()" />
+        <CalendarDaysIconSolid v-if="route == 'weekly-habit'" :class=iconClassSize   @click="showWeeklyHabit()" />
+        <CalendarDaysIcon v-else :class=iconClassSize @click="showWeeklyHabit()" />
 
-        <ClockIconSolid v-if="route == 'history'" class="h-10 w-10" @click="showHistory()" />
-        <ClockIcon v-else class="h-10 w-10" @click="showHistory()" />
+        <ClockIconSolid v-if="route == 'history'" :class=iconClassSize @click="showHistory()" />
+        <ClockIcon v-else :class=iconClassSize @click="showHistory()" />
     </section>
 </template>
 
@@ -25,13 +25,19 @@ export default {
     name: 'NavigationBar',
     data() {
         return {
-            route: null
+            route: null,
+	        size : 9
         }
     },
     components: {
         UserCircleIcon, ClockIcon, CalendarDaysIcon, ClipboardDocumentCheckIcon,
         ClockIconSolid, CalendarDaysIconSolid, ClipboardDocumentCheckIconSolid, UserCircleIconSolid
     },
+	computed : {
+		iconClassSize() {
+			return `h-${this.size} w-${this.size}`;
+		}
+	},
     methods: {
         showProfile() {
             this.$router.push(`/profile`);

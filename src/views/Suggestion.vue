@@ -31,13 +31,15 @@
     </section>
 </template>
 
+
 <script>
+import {categories,habits} from '../data.js';
 export default {
     name: 'Suggestion',
     data() {
         return {
-            categories: null,
-            habits: [],
+            categories: categories,
+            habits: habits,
             categoryHabits: null,
         }
     },
@@ -48,23 +50,11 @@ export default {
         goBack() {
             this.$router.go(-1)
         },
-        async loadCategories() {
-            const res = await fetch("../src/api/category.json");
-            const data = await res.json();
-            this.categories = data;
-        },
-        async loadHabits() {
-            const res = await fetch("../src/api/habit.json");
-            const data = await res.json();
-            this.habits = data;
-        },
         showCategoryHabits(categoryId) {
             this.categoryHabits = this.habits.filter(a => a.categoryId == categoryId);
         }
     },
     mounted() {
-        this.loadCategories();
-        this.loadHabits();
     }
 }
 </script>

@@ -1,11 +1,8 @@
 <template>
     <div class="flex flex-col text-center h-vh bg-latte text-silver dark:bg-gunmetal">
-        <TopNavbar />
-        <p
-            class="font-bold tracking-wide shadow-md py-2 mx-16 rounded-3xl z-10 relative top-5 bg-white text-silver dark:bg-silver dark:text-white">
-            گزارش ماهانه عادت ها</p>
+        <TopNavbar :title="'نیم نگاه'" />
         <section
-            class="flex flex-col items-center mx-6 mb-5 pt-10 pb-5 rounded-3xl h-full shadow-md bg-macaroni text-silver dark:bg-charcoal dark:text-white overflow-y-auto overflow-x-hidden">
+            class="flex flex-col items-center mt-5 mx-6 mb-5 pt-10 pb-5 rounded-3xl h-full shadow-md bg-white text-silver dark:bg-charcoal dark:text-white overflow-y-auto overflow-x-hidden">
             <div class="flex items-center mt-2 mb-5">
                 <ChevronLeftIcon class="h-5 w-5" @click="showNextMonth()" />
                 <span class="text-xl font-bold mx-24">{{ currentMonth.toLocale('fa').format('MMMM') }}</span>
@@ -49,6 +46,7 @@
 
 <script>
 import { ChevronLeftIcon, ChevronRightIcon, XCircleIcon, CheckCircleIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import persianDate from 'persian-date'
 
 import DataStore from '../DataStore.js'
 import TopNavbar from '../components/Top-Navbar.vue'
