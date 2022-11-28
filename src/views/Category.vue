@@ -1,8 +1,14 @@
 <template>
-    <div class="bg-latte flex flex-col text-center h-vh text-silver dark:bg-gunmetal">
-        <p class="font-bold tracking-wide shadow-md rounded-3xl relative top-5 z-10 py-2 mt-14 mx-24 bg-white text-silver dark:bg-silver dark:text-white">فهرست عادت ها</p>
-        <div class="habits-list flex flex-col items-center h-90 rounded-3xl shadow-md font-bold mx-6 px-7 pt-10 pb-5 text-silver bg-macaroni dark:bg-charcoal overflow-y-auto overflow-x-hidden">
-            <section v-for="habit in habits" :key="habit.id" :class="habit.color" class="flex justify-between items-center mx-6 mt-3 p-2 w-full rounded-2xl shadow-md text-center font-semibold tracking-wide">
+    <div class="bg-stone-200 flex flex-col text-center h-vh text-silver dark:bg-gunmetal">
+        <section class="flex justify-end drop-shadow px-6 py-5 mb-5 text-white dark:text-white bg-yellow-green">
+            <h1 class="text-xl font-bold">فهرست عادت ها</h1>
+            <button @click="goBack()">
+                <vue-feather type="x" class="ml-20 h-6 w-6"></vue-feather>
+            </button>
+        </section>
+        <div class="habits-list flex flex-col items-center h-90 rounded-3xl shadow-md font-bold mx-5 px-5 py-7 text-silver bg-white dark:bg-charcoal overflow-y-auto overflow-x-hidden">
+            <section v-for="habit in habits" :key="habit.id" :class="habit.color"
+                class="flex justify-between items-center mx-6 mt-3 p-2 w-full rounded-2xl shadow-md text-center font-semibold tracking-wide">
                 <vue-feather type="trash-2" class="text-blush" @click="removeHabit(habit)"></vue-feather>
                 <div class="flex justify-end items-center">
                     <p class="mr-5">{{ habit.title }}</p>
@@ -10,9 +16,9 @@
                 </div>
             </section>
         </div>
-        <button @click="suggestHabit()" class="bg-orange btn-category mt-8">انتخاب عادت های پیشنهادی</button>
-        <button @click="createHabit()" class="bg-green btn-category mt-4">ساخت عادت اختصاصی</button>
-        <button @click="showHabitList()" class="bg-blush btn-category mt-8">مشاهده برنامه</button>
+        <button @click="suggestHabit()" class="bg-lime-600 btn-category mt-8">انتخاب عادت های پیشنهادی</button>
+        <button @click="createHabit()" class="bg-lime-900 btn-category mt-5">ساخت عادت اختصاصی</button>
+        <button @click="showHabitList()" class="bg-avocado btn-category mt-8">مرحله بعد</button>
     </div>
 </template>
 
@@ -45,7 +51,10 @@ export default {
                 this.habits.splice(index, 1)
             }
             DataStore.saveHabits(this.habits);
-        }
+        },
+        goBack() {
+            this.$router.go(-1)
+        },
     },
     mounted() {
         this.loadHabits();

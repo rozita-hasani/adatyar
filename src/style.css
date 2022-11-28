@@ -4,37 +4,16 @@
 
 @layer components {
   .btn-category {
-    @apply text-latte py-4 mx-6 rounded-3xl font-bold tracking-wide shadow-md;
+    @apply text-latte py-4 mx-5 rounded-3xl font-bold tracking-wide shadow-md;
   }
   .label-suggestion {
-    @apply bg-white rounded-l-2xl font-bold text-xl py-2 px-4 w-fit shadow-md relative top-6 dark:bg-silver dark:text-white;
+    @apply rounded-l-2xl font-bold py-2 px-4 w-fit shadow-md relative top-6 text-white bg-stone-600;
   }
   .label-creation {
-    @apply bg-white rounded-l-2xl font-bold text-xl py-2 px-4 w-fit shadow-md relative top-6 dark:bg-silver dark:text-white;
+    @apply bg-stone-600 rounded-l-2xl font-bold py-2 px-4 w-fit shadow-md relative top-6 text-white;
   }
   .section-creation {
-    @apply flex flex-wrap items-center justify-center w-full pt-10 pb-5 px-2 bg-buff dark:bg-gray;
-  }
-  .profile {
-    @apply flex items-center px-6 mb-6 w-full dark:text-white;
-  }
-  .btn-profile {
-    @apply flex flex-col items-end tracking-wide border-b w-full pb-1;
-  }
-  .span-profie {
-    @apply font-semibold mt-1 mr-1;
-  }
-  .profile-modal {
-    @apply flex flex-col bg-buff text-silver mx-6 px-6 py-4 rounded-3xl h-full shadow-md dark:bg-gray dark:text-white;
-  }
-  .p-profile-modal {
-    @apply flex flex-row-reverse font-bold mb-2;
-  }
-  .input-profile-modal {
-    @apply p-2 rounded-3xl shadow-md text-center font-semibold text-lg dark:bg-silver dark:text-white mb-2;
-  }
-  .div-profile-modal {
-    @apply flex flex-row-reverse font-bold;
+    @apply flex flex-wrap items-center justify-center w-full pt-8 pb-1 px-2 bg-stone-400;
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col text-center h-vh bg-latte text-silver dark:bg-gunmetal">
-        <TopNavbar :title="'عادات های امروز'"/>
-        <div class="habit-list flex flex-col  items-center bg-white text-silver   p-5  shadow-md font-bold h-full overflow-y-auto overflow-x-hidden dark:bg-charcoal">
+    <div class="flex flex-col text-center h-vh bg-stone-200 text-silver dark:bg-gunmetal">
+        <TopNavbar :title="'عادت های امروز'"/>
+        <div class="habit-list flex flex-col items-center bg-white text-silver px-5 shadow-md font-bold h-full overflow-y-auto overflow-x-hidden dark:bg-charcoal mt-5 mx-6 py-2 rounded-3xl">
             <section dir="rtl" v-for="habit in todayHabits" :key="habit.id" :class="habit.color"
                 class="flex justify-between items-center text-center w-full mx-6 mt-3 p-2 rounded-2xl shadow-md font-semibold tracking-wide">
                 <div class="flex items-center">
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <input v-model="doneHabit[habit.id]" @change="trackHabit()" type="checkbox"
-                    class="appearance-none h-7 w-7 rounded-full pb-1 pr-2 text-xl border ml-2 bg-latte border-blush checked:bg-blush checked:text-latte dark:text-charcoal" />
+                    class="appearance-none h-7 w-7 rounded-full pb-1 pr-2 text-xl border ml-2 border-avocado checked:bg-avocado dark:bg-charcoal dark:checked:bg-avocado" />
             </section>
         </div>
         <Navbar/>

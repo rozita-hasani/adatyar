@@ -34,43 +34,41 @@ module.exports = {
                     'charcoal': '#3E4553ff',
                     'gunmetal': '#313642ff',
                     'lightGray': '#848484',
-                    'per5': '#db2777',
-                    'per4': '#ec4899',
-                    'per3': '#f472b6',
-                    'per2': '#f9a8d4',
-                    'per1': '#fbcfe8',
-                    'per5d': '#1f2937',
-                    'per4d': '#374151',
-                    'per3d': '#4b5563',
-                    'per2d': '#6b7280',
-                    'per1d': '#9ca3af',
                     'done': '#2A9B63ff',
                     'notDone': '#E63946ff',
                     'gray900': '#313642ad',
-                    'cream': '#ffebd3b8'
+                    'cream': '#ffebd3b8',
+                    'alice-blue': '#E2E9F5ff',
+                    'avocado': '#5B8225ff',
+                    'yellow-green': '#9CC931ff',
+                    'fern-green': '#2F501Eff'
+
                 }
             },
             height: {
                 'vh': '100vh',
                 '90': '358px',
-                '100': '560px'
+                '100': '592px'
             },
             width: {
                 '66': '278px',
-                '79': '314px'
+                '79': '326px'
             },
             inset: {
                 '66': '272px',
-                '25': '100px',
+                '25': '88px',
                 '26': '104px',
-                '38': '153px',
+                '38': '158px',
             },
             spacing: {
                 "46": '182px'
             },
             fontSize: {
                 ss: '0.6rem'
-            }
+            },
+            margin: {
+                '50': '200px',
+              }
         },
     }
 }

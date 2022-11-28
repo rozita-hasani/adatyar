@@ -3,7 +3,7 @@ class DataStore {
     constructor() {
         this.db = new LowSync(new LocalStorage("DATA_STORE"));
         this.db.read();
-        this.db.data ||= { habits: [], profile: {}, tracker: {} };
+        this.db.data ||= { habits: [], tracker: {}, darkMode: false };
         this.db.write();
     }
 
@@ -22,15 +22,6 @@ class DataStore {
         return this.db.data.habits
     }
 
-    saveProfile(detail) {
-        this.db.data.profile = detail;
-        this.db.write();
-    }
-
-    getProfile() {
-        return this.db.data.profile
-    }
-
     saveTracker(date, doneHabits) {
         if (this.db.data.tracker == null) {
             this.db.data.tracker = {}
@@ -44,6 +35,15 @@ class DataStore {
             this.db.data.tracker[date] = []
         }
         return this.db.data.tracker[date]
+    }
+
+    saveMode(mode){
+        this.db.data.darkMode = mode;
+        this.db.write();
+    }
+
+    getMode() {
+        return this.db.data.darkMode
     }
 }
 

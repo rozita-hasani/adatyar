@@ -3,7 +3,6 @@ import Register from '../views/Register.vue'
 import Category from '../views/Category.vue'
 import Suggestion from '../views/Suggestion.vue'
 import Creation from '../views/Creation.vue'
-import Profile from '../views/Profile.vue'
 import HabitList from '../views/Habit-List.vue'
 import WeeklyHabit from '../views/Weekly-Habit.vue'
 import History from '../views/History.vue'
@@ -28,11 +27,6 @@ const routes = [
     path: '/category/creation',
     name: 'Creation',
     component: Creation
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: Profile
   },
   {
     path: '/habit-list',

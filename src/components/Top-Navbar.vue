@@ -1,33 +1,33 @@
 <template>
-    <section class="flex flex-wrap drop-shadow justify-between px-6 py-5 dark:text-white bg-indigo-100 dark:bg-gunmetal ">
-        <PencilSquareIcon class="h-7 w-7" @click="setCategory()" />
-        <div v-if="isDarkmode">
-            <SunIcon class="h-7 w-7" @click="setLightMode()" />
-        </div>
-	    <div>
-		    <h1 class="text-xl font-bold">
-			    {{ title }}
-		    </h1>
+    <section class="flex flex-wrap drop-shadow justify-between px-6 py-5 text-white bg-yellow-green">
+        <PencilIcon class="h-7 w-7" @click="setCategory()" />
+        <div>
+		    <h1 class="text-xl font-bold">{{ title }}</h1>
 	    </div>
+        <div v-if="isDarkmode">
+            <SunIcon class="h-7 w-7" @click="toggleDarkMode()" />
+        </div>
         <div v-if="!isDarkmode">
-            <MoonIcon class="h-7 w-7" @click="setDarkMode()" />
+            <MoonIcon class="h-7 w-7" @click="toggleDarkMode()" />
         </div>
     </section>
 </template>
 
 <script>
-import { PencilSquareIcon, MoonIcon, SunIcon } from '@heroicons/vue/24/outline'
+import { PencilIcon, MoonIcon, SunIcon } from '@heroicons/vue/24/outline'
+import { getMemoedVNodeCall } from '@vue/compiler-core';
+import DataStore from '../DataStore.js'
 
 export default {
     name: 'TopNavigationBar',
 	props : ['title'],
     data() {
         return {
-            isDarkmode: false,
+            isDarkmode : DataStore.getMode()
         }
     },
     components: {
-        PencilSquareIcon,
+        PencilIcon,
         MoonIcon,
         SunIcon
     },
@@ -35,14 +35,16 @@ export default {
         setCategory() {
             this.$router.push(`/category`);
         },
-        setDarkMode() {
-            this.isDarkmode = true;
-            document.body.classList.toggle('dark')
-        },
-        setLightMode() {
-            this.isDarkmode = false;
-            document.body.classList.remove('dark')
-        },
+        toggleDarkMode(){
+            document.body.classList.toggle('dark');
+            this.isDarkmode =! this.isDarkmode;
+            DataStore.saveMode(this.isDarkmode)
+        }
+    },
+    mounted(){
+        if (this.isDarkmode) {
+            document.body.classList.add('dark');
+        }
     }
 }
 </script>

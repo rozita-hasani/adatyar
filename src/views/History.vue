@@ -1,44 +1,44 @@
 <template>
-    <div class="flex flex-col text-center h-vh bg-latte text-silver dark:bg-gunmetal">
+    <div class="flex flex-col text-center h-vh bg-stone-200 text-silver dark:bg-gunmetal">
         <TopNavbar :title="'نیم نگاه'" />
-        <section
-            class="flex flex-col items-center mt-5 mx-6 mb-5 pt-10 pb-5 rounded-3xl h-full shadow-md bg-white text-silver dark:bg-charcoal dark:text-white overflow-y-auto overflow-x-hidden">
-            <div class="flex items-center mt-2 mb-5">
+        <section class="flex flex-col items-center mt-5 mx-6 py-5 rounded-3xl h-full shadow-md bg-white text-silver dark:bg-charcoal dark:text-white overflow-y-auto overflow-x-hidden">
+            <div class="flex flex-wrap justify-between mb-5">
                 <ChevronLeftIcon class="h-5 w-5" @click="showNextMonth()" />
-                <span class="text-xl font-bold mx-24">{{ currentMonth.toLocale('fa').format('MMMM') }}</span>
+                <span class="text-xl font-bold mx-28">{{ currentMonth.toLocale('fa').format('MMMM') }}</span>
                 <ChevronRightIcon class="h-5 w-5" @click="showLastMonth()" />
             </div>
-            <div class="flex flex-wrap flex-row-reverse mx-4 mb-7 dark:text-silver">
-                <div v-for="item in days" :key="item.day">
-                    <span @click="showHabits(item.habits)"
-                        class="flex text-center items-center justify-center p-1 mr-1 my-1 rounded-lg w-9 h-9 text-gunmetal dark:text-white"
-                        :class=calculateColorRange(item.progress)>{{ en2fa(item.day) }}</span>
+            <section class="flex flex-col items-center">
+                <div class="flex flex-wrap flex-row-reverse mx-5 mb-7 dark:text-silver">
+                    <div v-for="item in days" :key="item.day">
+                        <span @click="showHabits(item.habits)"
+                            class="flex text-center items-center justify-center p-1 mr-1 my-1 rounded-lg w-9 h-9 text-gunmetal dark:text-stone-200"
+                            :class=calculateColorRange(item.progress)>{{ en2fa(item.day) }}</span>
+                    </div>
                 </div>
-            </div>
-            <div v-if="isVisible"
-                class="absolute top-25 w-79 h-100 rounded-3xl bg-cream bg-opacity-50 dark:bg-gray900 dark:bg-opacity-80">
-                <div class="w-66 top-36 right-0 left-0 mx-auto relative">
-                    <div
-                        class="flex flex-col items-end rounded-3xl shadow-md p-4 overflow-y-auto overflow-x-hidden bg-latte dark:bg-gunmetal">
-                        <XMarkIcon @click="hideModal()" class="h-5 w-5 mb-2" />
-                        <div class="flex items-center mb-1" v-for="item in habitsList" :key="item.id">
-                            <span>{{ item.title }}</span>
-                            <CheckCircleIcon class="h-6 w-6 mr-4 ml-2 text-done" v-if="item.isDone" />
-                            <XCircleIcon class="h-6 w-6 mr-4 ml-2 text-notDone" v-if="!item.isDone" />
+                <div v-if="isVisible"
+                    class="absolute top-25 w-79 h-100 rounded-3xl bg-stone-200 bg-opacity-50 dark:bg-gray900 dark:bg-opacity-80">
+                    <div class="w-66 top-38 right-0 left-0 mx-auto relative">
+                        <div class="flex flex-col items-end rounded-3xl shadow-md p-4 overflow-y-auto overflow-x-hidden bg-stone-200 dark:bg-gunmetal">
+                            <XMarkIcon @click="hideModal()" class="h-5 w-5 mb-2" />
+                            <div class="flex items-center mb-1" v-for="item in habitsList" :key="item.id">
+                                <span>{{ item.title }}</span>
+                                <CheckCircleIcon class="h-6 w-6 mr-4 ml-2 text-done" v-if="item.isDone" />
+                                <XCircleIcon class="h-6 w-6 mr-4 ml-2 text-notDone" v-if="!item.isDone" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="flex flex-col text-center justify-center items-end mt-36">
-                <div class="text-ss pb-1">:پیشرفت عادت ها</div>
-                <div class="flex flex-wrap justify-center flex-row-reverse">
-                    <div v-for="item in scoreRange" :key="item.id"
-                        class="flex flex-col items-center justify-center mr-1">
-                        <label class="text-ss">{{ item.mask }}</label>
-                        <span class="w-9 h-5 rounded-lg" :class="item.color"></span>
+                <div class="flex flex-col items-end mt-50">
+                    <div class="text-ss pb-1">:پیشرفت عادت ها</div>
+                    <div class="flex justify-center flex-row-reverse">
+                        <div v-for="item in scoreRange" :key="item.id"
+                            class="flex flex-col mr-1">
+                            <label class="text-ss">{{ item.mask }}</label>
+                            <span class="w-9 h-5 rounded-lg" :class="item.color"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </section>
         <Navbar />
     </div>
@@ -62,12 +62,12 @@ export default {
             habitsList: [],
             isVisible: false,
             scoreRange: [
-                { "low": 0, "high": 0, "color": 'bg-latte dark:bg-gunmetal', "mask": "۰٪" },
-                { "low": 1, "high": 20, "color": 'bg-per1', "mask": "٪۲۰-۱" },
-                { "low": 21, "high": 40, "color": 'bg-per2', "mask": "٪۴۰-۲۱" },
-                { "low": 41, "high": 60, "color": 'bg-per3', "mask": "٪۶۰-۴۱" },
-                { "low": 61, "high": 80, "color": 'bg-per4', "mask": "٪۸۰-۶۱" },
-                { "low": 81, "high": 100, "color": 'bg-per5', "mask": "٪۱۰۰-۸۱" }
+                { "low": 0, "high": 0, "color": 'bg-stone-200 dark:bg-gunmetal', "mask": "۰٪" },
+                { "low": 1, "high": 20, "color": 'bg-lime-200 dark:text-gunmetal', "mask": "٪۲۰-۱" },
+                { "low": 21, "high": 40, "color": 'bg-lime-300 dark:text-gunmetal', "mask": "٪۴۰-۲۱" },
+                { "low": 41, "high": 60, "color": 'bg-lime-400 dark:text-gunmetal', "mask": "٪۶۰-۴۱" },
+                { "low": 61, "high": 80, "color": 'bg-lime-500 dark:text-gunmetal', "mask": "٪۸۰-۶۱" },
+                { "low": 81, "high": 100, "color": 'bg-lime-600 dark:text-gunmetal', "mask": "٪۱۰۰-۸۱" }
             ]
         }
     },

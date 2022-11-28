@@ -1,8 +1,5 @@
 <template>
     <section class="flex flex-wrap justify-between drop-shadow flex-row-reverse px-6 py-5 dark:text-white ">
-<!--        <UserCircleIconSolid v-if="route == 'profile'" :class=iconClassSize @click="showProfile()" />-->
-<!--        <UserCircleIcon v-else :class=iconClassSize @click="showProfile()" />-->
-
         <ClipboardDocumentCheckIconSolid v-if="route == 'habit-list'" :class=iconClassSize @click="showHabitList()" />
         <ClipboardDocumentCheckIcon v-else :class=iconClassSize @click="showHabitList()" />
 
@@ -15,11 +12,10 @@
 </template>
 
 <script>
-import { CalendarDaysIcon, ClipboardDocumentCheckIcon, UserCircleIcon, ClockIcon } from '@heroicons/vue/24/outline';
+import { CalendarDaysIcon, ClipboardDocumentCheckIcon, ClockIcon } from '@heroicons/vue/24/outline';
 import ClockIconSolid from '@heroicons/vue/24/solid/ClockIcon';
 import CalendarDaysIconSolid from '@heroicons/vue/24/solid/CalendarDaysIcon';
 import ClipboardDocumentCheckIconSolid from '@heroicons/vue/24/solid/ClipboardDocumentCheckIcon';
-import UserCircleIconSolid from '@heroicons/vue/24/solid/UserCircleIcon';
 
 export default {
     name: 'NavigationBar',
@@ -30,8 +26,8 @@ export default {
         }
     },
     components: {
-        UserCircleIcon, ClockIcon, CalendarDaysIcon, ClipboardDocumentCheckIcon,
-        ClockIconSolid, CalendarDaysIconSolid, ClipboardDocumentCheckIconSolid, UserCircleIconSolid
+        ClockIcon, CalendarDaysIcon, ClipboardDocumentCheckIcon,
+        ClockIconSolid, CalendarDaysIconSolid, ClipboardDocumentCheckIconSolid
     },
 	computed : {
 		iconClassSize() {
@@ -39,9 +35,6 @@ export default {
 		}
 	},
     methods: {
-        showProfile() {
-            this.$router.push(`/profile`);
-        },
         showHabitList() {
             this.$router.push(`/habit-list`);
         },

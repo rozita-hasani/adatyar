@@ -1,19 +1,15 @@
  # Adatyar
-It is a habit tracker **mobile web application** that helps you create and track your habits. 
+It is a habit tracker **mobile web application** that helps you create and track your habits.
+A user starts by making a list of habits. He/she can choose from the recommended habits or create new custom habits.
 
-A user starts by making a list of habits. 
-Then he/she can choose from the recommended habits or create a new custom habit.
+### TodayHabits - عادت های امروز
+In the next step, the application provides a daily list for users to check the habits they have accomplished.
 
-## History
-
-In the next step, the application provides a daily list for users to check the habits they have accomplished. 
+### HabitsList - لیست عادت ها
 Users can also monitor each day's list, which contains habits it's and their statuses (completed or not).
 
-## Overview - نیم نگاه
-
+### Overview - نیم نگاه
 In addition, each month has a heat map showing days' progress in color. Moreover, users can see a brief report of each day's habits and whether they have been completed.
-
-<!-- It's a habit tracker **mobile app** which is about forming and monitoring habits. At first a user makes a list of habits, He/She can create the list of suggested ones or build his/her unique habits based on week days. Then the application provides a daily list for the user to check the habits he/she has done. Also the user can monitor every day list with details that contains habits table and which habit is done or not. Furthermore there is a heat map for every month that shows days progress with colors plus with clicking on a day, users can see a brief report of that day's habits and which habit is done or not. -->
 
 
 ## Frameworks and Libraries
@@ -28,7 +24,9 @@ The project is made by:
 - [Feather-icons](https://feathericons.com/)
 
 ## Screenshots
-![HabiTrack Screenshot](screenshot.png)
+![HabiTrack Screenshot](screenshot-1.png)
+
+![HabiTrack Screenshot](screenshot-2.png)
 
 ## Installation
 For running the project:
