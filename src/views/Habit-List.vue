@@ -23,8 +23,7 @@
 import { CameraIcon, UserIcon, EnvelopeIcon } from '@heroicons/vue/24/outline'
 import TopNavbar from '../components/Top-Navbar.vue'
 import Navbar from '../components/Navbar.vue'
-import DataStore from '../DataStore.js'
-import persianDate from 'persian-date'
+import DataStore from '../datastore.js'
 
 
 export default {

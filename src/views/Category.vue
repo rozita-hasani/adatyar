@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import DataStore from '../DataStore.js'
+import DataStore from '../datastore.js'
 
 export default {
     name: 'Category',

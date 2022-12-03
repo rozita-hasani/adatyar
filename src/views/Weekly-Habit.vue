@@ -40,17 +40,17 @@
 <script>
 import { CameraIcon, UserIcon, EnvelopeIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 import persianDate from 'persian-date'
-import DataStore from '../DataStore.js'
+import DataStore from '../datastore.js'
 import TopNavbar from '../components/Top-Navbar.vue'
 import Navbar from '../components/Navbar.vue'
-import { WeekDays } from '../Enums.js'
+import { weekdays } from '../data.js'
 
 export default {
     name: 'Habit-List',
     data() {
         return {
             todayHabits: null,
-            weekDays: WeekDays,
+            weekDays: weekdays,
             doneHabit: [],
             monthCalendar: [],
             currentWeekDay: new persianDate(),

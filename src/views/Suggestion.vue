@@ -38,7 +38,7 @@
 
 
 <script>
-import { categories, habits } from '../Data.js';
+import { categories, habits } from '../data.js';
 export default {
     name: 'Suggestion',
     data() {

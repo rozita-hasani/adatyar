@@ -16,7 +16,7 @@
 <script>
 import { PencilIcon, MoonIcon, SunIcon } from '@heroicons/vue/24/outline'
 import { getMemoedVNodeCall } from '@vue/compiler-core';
-import DataStore from '../DataStore.js'
+import DataStore from '../datastore.js'
 
 export default {
     name: 'TopNavigationBar',

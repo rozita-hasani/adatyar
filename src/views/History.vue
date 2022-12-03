@@ -48,7 +48,7 @@
 import { ChevronLeftIcon, ChevronRightIcon, XCircleIcon, CheckCircleIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import persianDate from 'persian-date'
 
-import DataStore from '../DataStore.js'
+import DataStore from '../datastore.js'
 import TopNavbar from '../components/Top-Navbar.vue'
 import Navbar from '../components/Navbar.vue'
 

@@ -1,3 +1,25 @@
+const weekdays = {
+    SATURDAY: 'شنبه',
+    SUNDAY: 'یکشنبه',
+    MONDAY: 'دوشنبه',
+    TUESDAY: 'سه شنبه',
+    WEDNESDAY: 'چهارشنبه',
+    THURSDAY: 'پنج شنبه',
+    FRIDAY: 'جمعه',
+};
+const colors = {
+    darkGreen: 'bg-darkGreen',
+    purple: 'bg-purple',
+    gray: 'bg-gray',
+    blue: 'bg-blue',
+    red: 'bg-red',
+    yellow: 'bg-yellow',
+    pink: 'bg-pink',
+    darkBlue: 'bg-darkBlue',
+    lightGreen: 'bg-lightGreen',
+    orange: 'bg-orange'
+}
+
 const categories = [
     {"id": 1, "type": "activity", "name": "سلامت"},
     {"id": 2, "type": "users", "name": "روابط"},
@@ -194,6 +216,6 @@ const habits = [
 ];
 
 
-export {
-    categories, habits, icons
+export  {
+    categories, habits, icons,weekdays,colors
 };

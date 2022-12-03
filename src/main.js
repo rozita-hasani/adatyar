@@ -11,7 +11,7 @@ app.component(VueFeather.name, VueFeather)
 app.mount('#app')
 
 
-import { en2fa } from './Persian.js'
+import { en2fa } from './utils.js'
 
 var myMixIn = {
     methods: {

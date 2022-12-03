@@ -60,24 +60,22 @@
 </template>
 
 <script>
-import DataStore from '../DataStore.js'
-import { WeekDays } from '../Enums.js'
-import { Colors } from '../Enums.js'
-import { categories, habits, icons } from '../Data.js';
+import DataStore from '../datastore.js'
+import { categories, habits, icons,colors,weekdays } from '../data.js';
 
 export default {
     name: 'Creation',
     data() {
         return {
             icons: null,
-            colors: Colors,
+            colors: colors,
             days: null,
             habitTitle: this.$route.query.title,
             habitIcon: this.$route.query.iconType,
             habitColor: null,
             habitDay: [],
             habitDescription: null,
-            weekDays: WeekDays,
+            weekDays: weekdays,
             isVisible: false,
             categories: categories,
             habits: habits,
