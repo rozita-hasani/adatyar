@@ -1,9 +1,12 @@
 <template>
     <div class="bg-stone-200 flex flex-col text-center h-vh text-silver dark:bg-gunmetal">
-        <section class="flex justify-end drop-shadow px-6 py-5 mb-5 text-white dark:text-white bg-yellow-green">
+        <section class="flex justify-between drop-shadow px-6 py-5 mb-5 text-white dark:text-white bg-yellow-green">
+            <button @click="createHabit()">
+                <vue-feather type="plus" class="h-6 w-6"></vue-feather>
+            </button>
             <h1 class="text-xl font-bold">فهرست عادت ها</h1>
             <button @click="goBack()">
-                <vue-feather type="x" class="ml-20 h-6 w-6"></vue-feather>
+                <vue-feather type="x" class="h-6 w-6"></vue-feather>
             </button>
         </section>
         <div class="habits-list flex flex-col items-center h-90 rounded-3xl shadow-md font-bold mx-5 px-5 py-7 text-silver bg-white dark:bg-charcoal overflow-y-auto overflow-x-hidden">
@@ -16,8 +19,6 @@
                 </div>
             </section>
         </div>
-        <button @click="suggestHabit()" class="bg-lime-600 btn-category mt-8">انتخاب عادت های پیشنهادی</button>
-        <button @click="createHabit()" class="bg-lime-900 btn-category mt-5">ساخت عادت اختصاصی</button>
         <button @click="showHabitList()" class="bg-avocado btn-category mt-8">مرحله بعد</button>
     </div>
 </template>
@@ -33,9 +34,6 @@ export default {
         }
     },
     methods: {
-        suggestHabit() {
-            this.$router.push(`/category/suggestion`);
-        },
         createHabit() {
             this.$router.push(`/category/creation`);
         },

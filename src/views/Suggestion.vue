@@ -1,7 +1,7 @@
 <template>
     <div class="bg-stone-200 flex flex-col text-center min-h-screen text-silver dark:bg-gunmetal">
         <section class="title flex justify-end drop-shadow px-6 py-5 mb-5 text-white dark:text-white bg-yellow-green">
-            <h1 class="text-xl font-bold">انتخاب عادت جدید</h1>
+            <h1 class="text-xl font-bold"> عادت پیش فرض</h1>
             <button @click="goBack()">
                 <vue-feather type="x" class="ml-20 h-6 w-6"></vue-feather>
             </button>

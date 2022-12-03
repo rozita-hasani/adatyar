@@ -6,6 +6,7 @@
                 <vue-feather type="x" class="ml-20 h-6 w-6"></vue-feather>
             </button>
         </section>
+        <button @click="suggestHabit()" class="bg-avocado btn-category">انتخاب عادت های پیش فرض</button>
         <section class="flex flex-col bg-white text-silver mx-6 mt-5 mb-7 rounded-3xl h-full dark:bg-charcoal">
             <div class="habit-title flex flex-col items-end">
                 <label class="label-creation">نام عادت</label>
@@ -18,8 +19,8 @@
                 <section class="section-creation dark:text-white">
                     <div v-for="icon in icons" :key="icon.id">
                         <vue-feather @click="chooseIcon(icon.type)" :type="icon.type"
-                            :class="{ 'bg-white dark:bg-silver': habitIcon == icon.type }"
-                            class="rounded-full border-4 p-1 m-1  text-stone-600 dark:text-white border-white dark:border-silver"></vue-feather>
+                            :class="{ 'bg-white': habitIcon == icon.type }"
+                            class="rounded-full border-2 p-2 mx-1 text-stone-600 border-white dark:border-silver"></vue-feather>
                     </div>
                 </section>
             </div>
@@ -62,7 +63,7 @@
 import DataStore from '../DataStore.js'
 import { WeekDays } from '../Enums.js'
 import { Colors } from '../Enums.js'
-import { icons } from '../Data.js';
+import { categories, habits, icons } from '../Data.js';
 
 export default {
     name: 'Creation',
@@ -78,6 +79,8 @@ export default {
             habitDescription: null,
             weekDays: WeekDays,
             isVisible: false,
+            categories: categories,
+            habits: habits,
         }
     },
     methods: {
@@ -90,7 +93,13 @@ export default {
             this.$router.push(`/Category`);
         },
         goBack() {
-            this.$router.go(-1)
+            if (this.$route.query.title) {
+                this.$router.go(-3);
+                console.log("right")
+            }
+            else {
+                this.$router.go(-1);
+            }
         },
         async loadIcons() {
             this.icons = icons;
@@ -111,6 +120,12 @@ export default {
         },
         hideModal() {
             this.isVisible = false
+        },
+        showCategoryHabits(categoryId) {
+            this.categoryHabits = this.habits.filter(a => a.categoryId == categoryId);
+        },
+        suggestHabit() {
+            this.$router.push(`/category/suggestion`);
         },
     },
     mounted() {
