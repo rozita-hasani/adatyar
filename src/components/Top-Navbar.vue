@@ -1,6 +1,6 @@
 <template>
-    <section class="flex flex-wrap drop-shadow justify-between px-6 py-5 text-white bg-yellow-green">
-        <PencilIcon class="h-7 w-7" @click="setCategory()" />
+    <section class="flex flex-wrap items-center drop-shadow justify-between px-6 py-5 text-white bg-yellow-green">
+        <PencilIcon class="h-5 w-5" @click="setCategory()" />
         <div>
 		    <h1 class="text-xl font-bold">{{ title }}</h1>
 	    </div>
