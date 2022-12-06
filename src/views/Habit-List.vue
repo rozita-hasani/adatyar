@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col text-center h-vh bg-stone-200 text-silver dark:bg-gunmetal">
-        <TopNavbar :title="'عادت های امروز'"/>
+        <Toolbar :title="'عادت های امروز'"/>
         <div class="habit-list flex flex-col items-center bg-white text-silver px-5 shadow-md font-bold h-full overflow-y-auto overflow-x-hidden dark:bg-charcoal mt-5 mx-6 py-2 rounded-3xl">
             <section dir="rtl" v-for="habit in todayHabits" :key="habit.id" :class="habit.color"
                 class="flex justify-between items-center text-center w-full mx-6 mt-3 p-2 rounded-2xl shadow-md font-semibold tracking-wide">
@@ -21,7 +21,7 @@
 
 <script>
 import { CameraIcon, UserIcon, EnvelopeIcon } from '@heroicons/vue/24/outline'
-import TopNavbar from '../components/Top-Navbar.vue'
+import Toolbar from '../components/Toolbar.vue'
 import Navbar from '../components/Navbar.vue'
 import DataStore from '../datastore.js'
 
@@ -40,7 +40,7 @@ export default {
         }
     },
     components: {
-        CameraIcon, UserIcon, EnvelopeIcon, Navbar, TopNavbar
+        CameraIcon, UserIcon, EnvelopeIcon, Navbar, Toolbar
     },
     methods: {
         loadHabits() {

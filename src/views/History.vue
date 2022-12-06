@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col text-center h-vh bg-stone-200 text-silver dark:bg-gunmetal">
-        <TopNavbar :title="'نیم نگاه'" />
+        <Toolbar :title="'نیم نگاه'" />
         <section class="flex flex-col items-center mt-5 mx-6 py-5 rounded-3xl h-full shadow-md bg-white text-silver dark:bg-charcoal dark:text-white overflow-y-auto overflow-x-hidden">
             <div class="flex flex-wrap justify-between mb-5">
                 <ChevronLeftIcon class="h-5 w-5" @click="showNextMonth()" />
@@ -49,7 +49,7 @@ import { ChevronLeftIcon, ChevronRightIcon, XCircleIcon, CheckCircleIcon, XMarkI
 import persianDate from 'persian-date'
 
 import DataStore from '../datastore.js'
-import TopNavbar from '../components/Top-Navbar.vue'
+import Toolbar from '../components/Toolbar.vue'
 import Navbar from '../components/Navbar.vue'
 
 export default {
@@ -72,7 +72,7 @@ export default {
         }
     },
     components: {
-        ChevronLeftIcon, ChevronRightIcon, Navbar, XCircleIcon, CheckCircleIcon, XMarkIcon, TopNavbar
+        ChevronLeftIcon, ChevronRightIcon, Navbar, XCircleIcon, CheckCircleIcon, XMarkIcon, Toolbar
     },
     methods: {
         showCurrentMonth() {

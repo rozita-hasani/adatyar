@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col text-center h-vh bg-stone-200 text-silver dark:bg-gunmetal">
-        <TopNavbar :title='"لیست عادت ها"' />
+        <Toolbar :title='"لیست عادت ها"' />
         <section class="flex flex-col items-center h-full mx-6 pt-5 pb-5 overflow-y-auto overflow-x-hidden bg-white text-silver dark:bg-charcoal dark:text-white mt-5 py-5 rounded-3xl shadow-md">
             <div class="month flex items-center mb-5">
                 <ChevronLeftIcon class="h-5 w-5" @click="showNextWeek()"/>
@@ -41,7 +41,7 @@
 import { CameraIcon, UserIcon, EnvelopeIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 import persianDate from 'persian-date'
 import DataStore from '../datastore.js'
-import TopNavbar from '../components/Top-Navbar.vue'
+import Toolbar from '../components/Toolbar.vue'
 import Navbar from '../components/Navbar.vue'
 import { weekdays } from '../data.js'
 
@@ -59,7 +59,7 @@ export default {
         }
     },
     components: {
-        CameraIcon, UserIcon, EnvelopeIcon, ChevronLeftIcon, ChevronRightIcon, Navbar, TopNavbar
+        CameraIcon, UserIcon, EnvelopeIcon, ChevronLeftIcon, ChevronRightIcon, Navbar, Toolbar
     },
     methods: {
         showCurrentHabits() {
