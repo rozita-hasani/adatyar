@@ -1,45 +1,47 @@
 <template>
     <div class="flex flex-col text-center h-vh bg-stone-200 text-silver dark:bg-gunmetal">
         <Toolbar :title="'نیم نگاه'" />
-        <section class="flex flex-col items-center mt-5 mx-6 py-5 rounded-3xl h-full shadow-md bg-white text-silver dark:bg-charcoal dark:text-white overflow-y-auto overflow-x-hidden">
-            <div class="flex flex-wrap justify-between mb-5">
-                <ChevronLeftIcon class="h-5 w-5" @click="showNextMonth()" />
-                <span class="text-xl font-bold mx-28">{{ currentMonth.toLocale('fa').format('MMMM') }}</span>
-                <ChevronRightIcon class="h-5 w-5" @click="showLastMonth()" />
-            </div>
-            <section class="flex flex-col items-center">
-                <div class="flex flex-wrap flex-row-reverse mx-5 mb-7 dark:text-silver">
-                    <div v-for="item in days" :key="item.day">
-                        <span @click="showHabits(item.habits)"
-                            class="flex text-center items-center justify-center p-1 mr-1 my-1 rounded-lg w-9 h-9 text-gunmetal dark:text-stone-200"
-                            :class=calculateColorRange(item.progress)>{{ en2fa(item.day) }}</span>
-                    </div>
+        <div class="flex flex-col justify-center h-full my-22 mx-6 ">
+            <section class="flex flex-col items-center justify-center py-5 rounded-3xl shadow-md bg-white text-silver dark:bg-charcoal dark:text-white h-full">
+                <div class="grid grid-cols-3 gap-28 items-center justify-items-center mb-3">
+                    <ChevronLeftIcon class="h-5 w-5" @click="showNextMonth()" />
+                    <span class="text-lg font-bold">{{ currentMonth.toLocale('fa').format('MMMM') }}</span>
+                    <ChevronRightIcon class="h-5 w-5" @click="showLastMonth()" />
                 </div>
-                <div v-if="isVisible"
-                    class="absolute top-25 w-79 h-100 rounded-3xl bg-stone-200 bg-opacity-50 dark:bg-gray900 dark:bg-opacity-80">
-                    <div class="w-66 top-38 right-0 left-0 mx-auto relative">
-                        <div class="flex flex-col items-end rounded-3xl shadow-md p-4 overflow-y-auto overflow-x-hidden bg-stone-200 dark:bg-gunmetal">
-                            <XMarkIcon @click="hideModal()" class="h-5 w-5 mb-2" />
-                            <div class="flex items-center mb-1" v-for="item in habitsList" :key="item.id">
-                                <span>{{ item.title }}</span>
-                                <CheckCircleIcon class="h-6 w-6 mr-4 ml-2 text-done" v-if="item.isDone" />
-                                <XCircleIcon class="h-6 w-6 mr-4 ml-2 text-notDone" v-if="!item.isDone" />
+                <section class="flex flex-col items-center justify-between h-full">
+                    <div dir="rtl" class="grid grid-cols-7 mb-5 dark:text-silver">
+                        <div v-for="item in days" :key="item.day">
+                            <span @click="showHabits(item.habits)"
+                                class="flex text-center items-center justify-center p-1 mr-1 my-1 rounded-lg w-9 h-9 text-gunmetal dark:text-stone-200"
+                                :class=calculateColorRange(item.progress)>{{ en2fa(item.day) }}</span>
+                        </div>
+                    </div>
+                    <div v-if="isVisible"
+                        class="fixed bg-stone-200 bg-opacity-50 dark:bg-stone-900 dark:bg-opacity-80 right-0 left-0 bottom-0 top-0 w-full">
+                        <div class="right-0 left-0 mx-auto">
+                            <div class="flex flex-col items-end rounded-3xl shadow-md p-4 mx-6 overflow-y-auto overflow-x-hidden relative top-37 bg-stone-200 dark:bg-gunmetal">
+                                <XMarkIcon @click="hideModal()" class="h-5 w-5 mb-2" />
+                                <div class="flex items-center mb-1" v-for="item in habitsList" :key="item.id">
+                                    <span>{{ item.title }}</span>
+                                    <CheckCircleIcon class="h-6 w-6 mr-4 ml-2 text-done" v-if="item.isDone" />
+                                    <XCircleIcon class="h-6 w-6 mr-4 ml-2 text-notDone" v-if="!item.isDone" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-col items-end mt-50">
-                    <div class="text-ss pb-1">:پیشرفت عادت ها</div>
-                    <div class="flex justify-center flex-row-reverse">
-                        <div v-for="item in scoreRange" :key="item.id"
-                            class="flex flex-col mr-1">
-                            <label class="text-ss">{{ item.mask }}</label>
-                            <span class="w-9 h-5 rounded-lg" :class="item.color"></span>
+                    <div class="flex flex-col items-end">
+                        <div class="text-ss pb-1">:پیشرفت عادت ها</div>
+                        <div class="flex justify-center flex-row-reverse">
+                            <div v-for="item in scoreRange" :key="item.id"
+                                class="flex flex-col mr-2">
+                                <label class="text-ss">{{ item.mask }}</label>
+                                <span class="w-9 h-5 rounded-lg" :class="item.color"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </section>
-        </section>
+        </div>
         <Navbar />
     </div>
 </template>
@@ -53,7 +55,7 @@ import Toolbar from '../components/Toolbar.vue'
 import Navbar from '../components/Navbar.vue'
 
 export default {
-    name: 'Habit-List',
+    name: 'Calender',
     data() {
         return {
             currentMonth: new persianDate(),
@@ -113,8 +115,10 @@ export default {
             this.showCurrentMonth();
         },
         showHabits(habitsDay) {
-            this.isVisible = true;
-            this.habitsList = habitsDay
+            if (habitsDay.length > 0) {
+                this.isVisible = true;
+                this.habitsList = habitsDay
+            }
         },
         hideModal() {
             this.isVisible = false

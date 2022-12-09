@@ -3,9 +3,9 @@ import Register from '../views/Register.vue'
 import Category from '../views/Category.vue'
 import Suggestion from '../views/Suggestion.vue'
 import Creation from '../views/Creation.vue'
-import HabitList from '../views/Habit-List.vue'
-import WeeklyHabit from '../views/Weekly-Habit.vue'
-import History from '../views/History.vue'
+import TodayHabits from '../views/Today-Habits.vue'
+import HabitsList from '../views/Habits-List.vue'
+import Calendar from '../views/Calendar.vue'
 
 const routes = [
   {
@@ -29,19 +29,19 @@ const routes = [
     component: Creation
   },
   {
-    path: '/habit-list',
-    name: 'Habit-List',
-    component: HabitList
+    path: '/today-habits',
+    name: 'Today-Habits',
+    component: TodayHabits
   },
   {
-    path: '/weekly-habit',
-    name: 'Weekly-Habit',
-    component: WeeklyHabit
+    path: '/habits-list',
+    name: 'Habits-List',
+    component: HabitsList
   },
   {
-    path: '/history',
-    name: 'History',
-    component: History
+    path: '/calendar',
+    name: 'Calendar',
+    component: Calendar
   }
 ]
 

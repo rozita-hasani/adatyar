@@ -3,14 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-  .btn-category {
-    @apply text-latte py-4 mx-5 rounded-3xl font-bold tracking-wide shadow-md;
-  }
   .label-suggestion {
-    @apply rounded-l-2xl font-bold py-2 px-4 w-fit shadow-md relative top-6 text-white bg-stone-600;
+    @apply rounded-l-2xl font-bold py-2 px-4 w-fit shadow-md relative top-5 text-white bg-stone-600;
   }
   .label-creation {
-    @apply bg-stone-600 rounded-l-2xl font-bold py-2 px-4 w-fit shadow-md relative top-6 text-white;
+    @apply bg-stone-600 rounded-l-2xl font-bold py-2 px-4 w-fit shadow-md relative top-5 text-white;
   }
   .section-creation {
     @apply flex flex-wrap items-center justify-center w-full pt-8 pb-2 bg-stone-400;

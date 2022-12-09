@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-wrap items-center drop-shadow justify-between px-6 py-5 text-white bg-yellow-green">
+    <section class="flex flex-wrap items-center drop-shadow justify-between px-6 py-5 text-white bg-yellow-green fixed top-0 left-0 right-0 z-10">
         <PencilIcon class="h-5 w-5" @click="setCategory()" />
         <div>
 		    <h1 class="text-xl font-bold">{{ title }}</h1>

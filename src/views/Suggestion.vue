@@ -1,12 +1,12 @@
 <template>
     <div class="bg-stone-200 flex flex-col text-center min-h-screen text-silver dark:bg-gunmetal">
-        <section class="title flex justify-end drop-shadow px-6 py-5 mb-5 text-white dark:text-white bg-yellow-green">
+        <section class="title flex justify-end drop-shadow px-6 py-5 mb-5 text-white dark:text-white bg-yellow-green fixed top-0 left-0 right-0 h-[65px] z-10">
             <h1 class="text-xl font-bold"> عادت پیش فرض</h1>
             <button @click="goBack()">
                 <vue-feather type="x" class="ml-20 h-6 w-6"></vue-feather>
             </button>
         </section>
-        <section class="flex flex-col bg-white text-silver mx-6 mb-5 rounded-3xl h-full dark:bg-charcoal">
+        <section class="flex flex-col bg-white text-silver mx-6 mb-5 mt-21 rounded-3xl h-full dark:bg-charcoal">
             <div class="categories flex flex-col items-end">
                 <label class="label-suggestion">دسته بندی ها</label>
                 <section class="flex flex-wrap items-center justify-center w-full pt-10 pb-3 bg-stone-400">

@@ -7,8 +7,12 @@ class DataStore {
         this.db.write();
     }
 
+    generateUniqueId(){
+        return Math.floor((Math.random()) * 0x10000)
+    }
+
     createHabit(habit) {
-        habit.id = crypto.randomUUID();
+        habit.id = this.generateUniqueId();
         this.db.data.habits.push(habit);
         this.db.write();
     }
