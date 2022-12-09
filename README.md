@@ -1,7 +1,7 @@
  # Adatyar
 
 ## Introduction
-Adatyar is a habit tracker **mobile web application** that helps you create and track your habits.
+Adatyar is a habit tracker **PWA web application** that helps you create and track your habits.
 A user starts by making a list of habits. He/she can choose from the recommended habits or create new custom habits.
 
 ### TodayHabits - عادت های امروز
